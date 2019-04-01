@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
+import MovieCard from './Movies/MovieCard';
 import Movie from './Movies/Movie';
 
 export default class App extends Component {
@@ -21,8 +23,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <ul className='navbar'>
+          {/* <li>
+            <Link to='/'>Home</Link>
+          </li> */}
+          <li className='home-button'>
+            <Link to='/movies'>Movies</Link>
+          </li>
+        </ul>
         <SavedList list={this.state.savedList} />
-        <div>Replace this Div with your Routes</div>
+        {/* <Route exact path='/' component={Home} /> */}
+        <Route exact path='/movies' component={MovieList} />
+        <Route path='/movies/:id' component={Movie} />
       </div>
     );
   }
