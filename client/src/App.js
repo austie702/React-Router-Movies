@@ -3,7 +3,6 @@ import { Route, Link } from 'react-router-dom';
 
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
-import MovieCard from './Movies/MovieCard';
 import Movie from './Movies/Movie';
 
 export default class App extends Component {
@@ -24,15 +23,11 @@ export default class App extends Component {
     return (
       <div>
         <ul className='navbar'>
-          {/* <li>
-            <Link to='/'>Home</Link>
-          </li> */}
           <li className='home-button'>
             <Link to='/movies'>Movies</Link>
           </li>
         </ul>
         <SavedList list={this.state.savedList} />
-        {/* <Route exact path='/' component={Home} /> */}
         <Route exact path='/movies' component={MovieList} />
         <Route path='/movies/:id' component={Movie} />
       </div>
